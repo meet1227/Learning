@@ -4,6 +4,7 @@ print('please select bellow option')
 print('     1. write')
 print('     2. Copy')
 x=int(input())
+header_list=['User_Id','Name','Date']
 try:
     match  x:
         case 1:
@@ -11,6 +12,8 @@ try:
             file_name=input()
             f=open(file_name,'a')
             writer = csv.writer(f)
+            if os.path. getsize(file_name) == 0:
+                writer.writerow(header_list)
             print('Please Enter the number of rows')
             r_Count=int(input())
             for i in range(r_Count):
